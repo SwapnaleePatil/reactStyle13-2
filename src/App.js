@@ -1,18 +1,30 @@
 import React, { Component } from 'react';
-
+import {Route,BrowserRouter,NavLink,Prompt,Switch} from 'react-router-dom'
 import './App.css';
-
+import Links from './Links';
+import SideBar from './SideBar';
+import Footer from './Footer';
+import Hello from './MainContent';
 class App extends Component {
-  render() {
-    return (
-      <div className="App" >
-        <header className="App-header">
-          <img className="img"   src="http://under30ceo.com/wp-content/uploads/2013/12/o-NEW-YORK-CITY-WRITER-facebook.jpg" />
+    render() {
+        return (
+            <div className="App" >
+                <div className="App-header">
+                    Welcome To React
+                </div>
+                <div>
+                    <SideBar/>
+                    <Hello/>
+                </div>
+                <div>
 
-        </header>
-      </div>
-    );
-  }
+
+                    <Footer/>
+                </div>
+            </div>
+
+        );
+    }
 }
 
 export default App;
