@@ -10,7 +10,6 @@ class Footer extends React.Component
                 <BrowserRouter>
                     <div className="footer">
                         <h3>Made by React Trainee</h3>
-
                     </div>
                 </BrowserRouter>
             </header>
