@@ -1,21 +1,22 @@
-
 .App {
   text-align: center;
+  overflow: hidden;
   background-color: white;
 
 }
-
+body{
+  overflow-y: hidden;
+}
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
 }
 .bor{
-  border: .1px solid dodgerblue;
+  border: 1px solid dodgerblue;
 }
-
 .App-header {
   background : linear-gradient(to right,  aqua , aquamarine);
-  height:100%;
+  height:10%;
   width:100%;
   color: navy;
   padding-top: 2.5rem;
@@ -26,10 +27,8 @@
 }
 .txt{
   font-size: large;
- 
   font-family: Sylfaen;
   color: deeppink;
-
 }
 .topnav a {
   float: left;
@@ -58,32 +57,38 @@
   overflow: hidden;
   background: white;
   float: left;
-
-
 }
+
+.main {
+  position: relative;
+  float: right;
+overflow: scroll;
+
+  /* margin-left: 140px; /* Same width as the sidebar + left position in px */
+  /*  font-size: 28px; /* Increased text to enable scrolling */
+  /*  padding: 0px 10px;*/
+}
+
 .side{
-  height: 100%;
-  width: 100%;
-}
-.main{
-  height: 100%;
-  width:100%;
-  overflow: auto;
-}
-.sidenav {
-  width: 250px;
-height: 80%;
-  float: left;
-
-  background: linear-gradient(to top, aqua , aquamarine);
-  overflow-x: hidden;
-  overflow: auto;
+  width: 50%;
   position: absolute;
 
-
 }
 
+.sidenav {
 
+  float: left;
+  background: linear-gradient(to top, aqua , aquamarine);
+height: 100%;
+  overflow: hidden;
+  position: absolute;
+
+}
+.rc{
+  height: 80vh;
+  overflow-y: scroll;
+
+}
 .sidenav a {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
@@ -91,39 +96,20 @@ height: 80%;
   color: navy;
   display: block;
 }
-
 .sidenav a:hover {
   color: navy;
   font-size: 30px;
   background: antiquewhite;
 }
+
 .footer {
-
-
   background: linear-gradient(to left, aqua , aquamarine);;
   text-align: center;
   float: left;
- width:100%;
-  height: 100%;
+
   position: fixed;
-  top: 90%;
-  left: 0;
+  width: 100%;
+  bottom: 0%;
   color: navy;
-}
-
-.main {
-  margin-left: 140px; /* Same width as the sidebar + left position in px */
-  font-size: 28px; /* Increased text to enable scrolling */
-  padding: 0px 10px;
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
-
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  overflow: hidden;
 }

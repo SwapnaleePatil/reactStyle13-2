@@ -4,7 +4,7 @@ import '../App.css';
 const Content =()=>(
 
     <div className="row">
-        <div className="col-sm-8">
+        <div className="col-sm-9">
             <NavLink className="list-group-item  " activeClassName="active" exact to="/content/city">City</NavLink>
             <NavLink className="list-group-item  " activeClassName="active" exact to="/content/sport">Sports</NavLink>
 
@@ -14,7 +14,7 @@ const Content =()=>(
 
 )
 const ComponentDetails=(props)=>(
-    <div>
+    <div className="abc">
         { props.match.params.contentName === "city" ?
             <div>
                 <img height="100%" width="50%" src="https://static.pexels.com/photos/311012/pexels-photo-311012.jpeg"/>

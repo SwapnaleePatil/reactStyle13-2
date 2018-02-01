@@ -84,10 +84,13 @@ class Table extends React.Component
                             <label>Gender</label>
                         </div>
                         <div className="col-75">
-                            <div className="row">
-                            <input type="radio" name="r1" id="r1" ref="r1" value="male"/><h5 align="left">Male</h5>
-                                <input type="radio" name="r1" id="r2" ref="r2" value="female"/><h5 align="left">Female</h5>
-
+                            <div  >
+                                <div className="col-10">
+                                    <input type="radio" name="r1" id="r1" ref="r1" value="male" onChange=""/><div vertical-align="middle" align="left">Male</div>
+                                </div>
+                                <div className="col-10">
+                                    <input type="radio" name="r1" id="r2" ref="r2" value="female"/><div vertical-align="middle" align="left">Female</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -106,24 +109,36 @@ class Table extends React.Component
                     </div>
                     <div className="row">
                         <div className="col-25">
-
                         </div>
                         <div className="col-75">
-                            <div className="row">
-                            <input type="checkbox" id="agree" value="0" ref="agree" name="agree" /><h5 align="left"> I Agree</h5>
+                            <input type="checkbox" id="agree" value="1" ref="agree" name="agree" /><div vertical-align="middle" align="left">I Agree</div>
                             </div>
-                        </div>
+
                     </div>
                     <div className="row">
                         <input type="submit" value="Submit" onClick={() => {
+                            let r='';
+                            let a=0;
+                            if(document.getElementById('r1').checked===true)
+                            {
+                                r='male';
+                            }
+                            if(document.getElementById('r2').checked===true)
+                            {
+                                r='female';
+                            }
+                            if(document.getElementById('agree').checked===true)
+                            {
+                                a=1;
+                            }
                             this.setState({
                                 ename: document.getElementById('fname').value,
                                 email: document.getElementById('email1').value,
                                 password: document.getElementById('pwd').value,
                                 pno: document.getElementById('pno').value,
-                                gender: document.getElementById('r1').value,
+                                gender: r,
                                 city: document.getElementById('city').value,
-                                agree: document.getElementById('agree').value
+                                agree: a
                             },
                                 () => {
                                 console.log('Method Call Back');
