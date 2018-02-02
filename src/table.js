@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 //import {Route,BrowserRouter,NavLink,Prompt,Switch} from 'react-router-dom'
 import './table.css';
+import {Popup} from 'react-popup';
 const axios=require('axios');
+var eid='';
 class Table extends React.Component
 {
     constructor()
@@ -34,13 +36,16 @@ class Table extends React.Component
             })
             .then((res)=>{
                 console.log("Response",res.data)
+                Popup.alert('Successfully Inserted');
             })
             .catch((e)=>{
                 console.log("Error"+e);
             });
+
     }
     render()
     {
+        console.log('table : ',this.props);
         return(
         <div className="table">
             <div className="container">

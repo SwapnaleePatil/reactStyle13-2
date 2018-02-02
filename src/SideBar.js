@@ -20,11 +20,11 @@ class Links extends React.Component
 
     <div className="list-group bor" >
         <NavLink className="bor" exact to="/">Home</NavLink>
-        <NavLink className="bor" to="/about">About</NavLink>
-        <NavLink className="bor" to="/help">Help</NavLink>
-        <NavLink className="bor" to="/content">Content</NavLink>
-        <NavLink className="bor" to="/form">Form</NavLink>
-        <NavLink className="bor" to="/disp">Display Data</NavLink>
+        <NavLink className="bor" exact to="/about">About</NavLink>
+        <NavLink className="bor" exact to="/help">Help</NavLink>
+        <NavLink className="bor" exact to="/content">Content</NavLink>
+        <NavLink className="bor" exact to="/form">Form</NavLink>
+        <NavLink className="bor" exact to="/disp">Display Data</NavLink>
     </div>
 
         )}
@@ -43,12 +43,12 @@ class SideBar extends React.Component
                     <div className="col-sm-10 col-sm-offset-2 rc" >
                         <Switch>
                             <Route exact path="/" component={Home}/>
-                            <Route path="/about" component={About}/>
-                            <Route path="/help" component={Help}/>
-                            <Route path="/content" component={Contents}/>
-                            <Route path="/form" component={Form}/>
-                            <Route path="/disp" component={TableDisp}/>
-                            <Route render={()=> <h1>Not Found</h1>} />
+                            <Route exact path="/about" component={About}/>
+                            <Route exact path="/help" component={Help}/>
+                            <Route exact path="/content" component={Contents}/>
+                            <Route exact path="/form" component={Form}/>
+                            <Route exact path="/disp" component={TableDisp}/>
+                            <Route exact render={()=> <h1>Not Found</h1>} />
                         </Switch>
                     </div>
                 </div>

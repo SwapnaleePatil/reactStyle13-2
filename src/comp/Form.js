@@ -5,18 +5,16 @@ import Table from "../table";
 
 
 class Form extends React.Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state={
             isChanged:false
         }
     }
     render(){
         return(
-            <Table/>
-
+            <Table />
         )
     }
-
 }
 export default Form;
