@@ -1,115 +1,121 @@
 .App {
-  text-align: center;
-  overflow: hidden;
-  background-color: white;
+    text-align: center;
+    overflow: hidden;
+    background-color: white;
 
 }
-body{
-  overflow-y: hidden;
+
+body {
+    overflow-y: hidden;
 }
+
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+    animation: App-logo-spin infinite 20s linear;
+    height: 80px;
 }
-.bor{
-  border: 1px solid dodgerblue;
+
+.bor {
+    border: 1px  dodgerblue;
 }
+
 .App-header {
-  background : linear-gradient(to right,  aqua , aquamarine);
-  height:10%;
-  width:100%;
-  color: navy;
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
-  text-align: center;
-  font-size: 50px;
+    background: linear-gradient(to right, aqua, aquamarine);
+    height: 10%;
+    width: 100%;
+    color: navy;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    text-align: center;
+    font-size: 50px;
 
 }
-.txt{
-  font-size: large;
-  font-family: Sylfaen;
-  color: deeppink;
+
+.txt {
+    font-size: large;
+    font-family: Sylfaen;
+    color: deeppink;
 }
+
 .topnav a {
-  float: left;
-  display: block;
-  color: navy;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+    float: left;
+    display: block;
+    color: navy;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
 }
 
 /* Change color on hover */
 .topnav a:hover {
-  background: #ddd;
-  color: black;
+    background: #ddd;
+    color: black;
 }
 
-
 .App-title {
-  font-size: 1.5em;
+    font-size: 1.5em;
 }
 
 .App-intro {
-  font-size: large;
+    font-size: large;
 }
+
 .topnav {
-  overflow: hidden;
-  background: white;
-  float: left;
+    overflow: hidden;
+    background: white;
+    float: left;
 }
 
 .main {
-  position: relative;
-  float: right;
-overflow: scroll;
+    position: relative;
+    float: right;
+    overflow: scroll;
 
-  /* margin-left: 140px; /* Same width as the sidebar + left position in px */
-  /*  font-size: 28px; /* Increased text to enable scrolling */
-  /*  padding: 0px 10px;*/
+    /* margin-left: 140px; /* Same width as the sidebar + left position in px */
+    /*  font-size: 28px; /* Increased text to enable scrolling */
+    /*  padding: 0px 10px;*/
 }
 
-.side{
-  width: 50%;
-  position: absolute;
+.side {
+    width: 50%;
+    position: absolute;
 
 }
 
 .sidenav {
+    float: left;
+    background: linear-gradient(to top, aqua, aquamarine);
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+}
 
-  float: left;
-  background: linear-gradient(to top, aqua , aquamarine);
-height: 100%;
-  overflow: hidden;
-  position: absolute;
+.rc {
+    height: 80vh;
+    overflow-y: scroll;
 
 }
-.rc{
-  height: 80vh;
-  overflow-y: scroll;
 
-}
 .sidenav a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 25px;
-  color: navy;
-  display: block;
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: navy;
+    display: block;
 }
+
 .sidenav a:hover {
-  color: navy;
-  font-size: 30px;
-  background: antiquewhite;
+    color: navy;
+    font-size: 35px;
+   /* background: antiquewhite;*/
 }
 
 .footer {
-  background: linear-gradient(to left, aqua , aquamarine);;
-  text-align: center;
-  float: left;
-
-  position: fixed;
-  width: 100%;
-  bottom: 0%;
-  color: navy;
-  overflow: hidden;
+    background: linear-gradient(to left, aqua, aquamarine);;
+    text-align: center;
+    float: left;
+    position: fixed;
+    width: 100%;
+    bottom: 0%;
+    color: navy;
+    overflow: hidden;
 }

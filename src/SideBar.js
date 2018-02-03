@@ -18,7 +18,7 @@ class Links extends React.Component
 
         return(
 
-    <div className="list-group bor" >
+    <div className="list-group  " >
         <NavLink className="bor" exact to="/">Home</NavLink>
         <NavLink className="bor" exact to="/about">About</NavLink>
         <NavLink className="bor" exact to="/help">Help</NavLink>
