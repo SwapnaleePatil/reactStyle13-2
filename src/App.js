@@ -15,13 +15,9 @@ class App extends Component {
 
                 <div className="row">
                     <div>
-                    <div>
                         <SideBar/>
                     </div>
-                    <div className="container">
-                        <Hello/>
-                    </div>
-                    </div>
+
                 </div>
                 <div>
                     <Footer/>

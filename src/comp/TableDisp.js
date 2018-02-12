@@ -357,7 +357,6 @@ class TableData extends React.Component {
             <section>
                 {
                     isEditing ? this.renderForm() : this.renderForm1()
-
                 }
             </section>
         )

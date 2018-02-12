@@ -10,6 +10,7 @@ import Form from './comp/Form';
 import Contents from './comp/Content';
 import Help from './comp/Help';
 import TableDisp from './comp/TableDisp';
+import Login from './comp/login';
 
 class Links extends React.Component
 {
@@ -17,16 +18,15 @@ class Links extends React.Component
 
 
         return(
-
-    <div className="list-group  " >
+<div>
         <NavLink className="bor" exact to="/">Home</NavLink>
         <NavLink className="bor" exact to="/about">About</NavLink>
         <NavLink className="bor" exact to="/help">Help</NavLink>
         <NavLink className="bor" exact to="/content">Content</NavLink>
         <NavLink className="bor" exact to="/form">Form</NavLink>
         <NavLink className="bor" exact to="/disp">Display Data</NavLink>
-    </div>
-
+        <NavLink className="bor" exact to="/login">Login</NavLink>
+</div>
         )}
 }
 
@@ -37,10 +37,11 @@ class SideBar extends React.Component
 <header>
     <BrowserRouter>
                 <div className="row">
-                    <div className="sidenav col-sm-2" >
+
+                    <section className="sidenav  col-lg-3" >
                         <Links/>
-                    </div>
-                    <div className="col-sm-10 col-sm-offset-2 rc" >
+                    </section>
+                    <section className="main  col-lg-9" >
                         <Switch>
                             <Route exact path="/" component={Home}/>
                             <Route exact path="/about" component={About}/>
@@ -48,9 +49,10 @@ class SideBar extends React.Component
                             <Route exact path="/content" component={Contents}/>
                             <Route exact path="/form" component={Form}/>
                             <Route exact path="/disp" component={TableDisp}/>
+                            <Route exact path="/login" component={Login}/>
                             <Route exact render={()=> <h1>Not Found</h1>} />
                         </Switch>
-                    </div>
+                    </section>
                 </div>
     </BrowserRouter>
 </header>

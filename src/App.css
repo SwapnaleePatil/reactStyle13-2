@@ -66,33 +66,26 @@ body {
 }
 
 .main {
-    position: relative;
-    float: right;
-    overflow: scroll;
-
-    /* margin-left: 140px; /* Same width as the sidebar + left position in px */
-    /*  font-size: 28px; /* Increased text to enable scrolling */
-    /*  padding: 0px 10px;*/
-}
-
-.side {
-    width: 50%;
     position: absolute;
+    height: 80vh;
 
+    float: right;
+
+    z-index: -1;
+   left: 20%;
+    padding-right:0%;
 }
+
+
 
 .sidenav {
+    width:20%;
     float: left;
     background: linear-gradient(to top, aqua, aquamarine);
     height: 100%;
     overflow: hidden;
     position: absolute;
-}
-
-.rc {
-    height: 80vh;
-    overflow-y: scroll;
-
+    
 }
 
 .sidenav a {

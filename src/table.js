@@ -121,7 +121,7 @@ class Table extends React.Component
 
                     </div>
                     <div className="row">
-                        <input type="submit" value="Submit" onClick={() => {
+                        <input type="submit" value="Submit"  onClick={() => {
                             let r='';
                             let a=0;
                             if(document.getElementById('r1').checked===true)
