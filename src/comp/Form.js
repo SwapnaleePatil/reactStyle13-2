@@ -11,6 +11,13 @@ class Form extends React.Component {
             isChanged:false
         }
     }
+
+    // componentWillMount() {
+    //     if(!localStorage.getItem('user'))
+    //     {
+    //         this.props.history.push('/login');
+    //     }
+    // }
     render(){
         return(
             <Table />

@@ -11,21 +11,25 @@ import Contents from './comp/Content';
 import Help from './comp/Help';
 import TableDisp from './comp/TableDisp';
 import Login from './comp/login';
-
+import Logout from './comp/logout';
+import ExamC from './comp/examCrud';
 class Links extends React.Component
 {
     render(){
-
-
         return(
 <div>
         <NavLink className="bor" exact to="/">Home</NavLink>
         <NavLink className="bor" exact to="/about">About</NavLink>
         <NavLink className="bor" exact to="/help">Help</NavLink>
         <NavLink className="bor" exact to="/content">Content</NavLink>
+        <NavLink className="bor" exact to="/examC">Crud User</NavLink>
+
         <NavLink className="bor" exact to="/form">Form</NavLink>
         <NavLink className="bor" exact to="/disp">Display Data</NavLink>
-        <NavLink className="bor" exact to="/login">Login</NavLink>
+        { (localStorage.getItem('user')) ?
+            <NavLink className="bor" exact to="/logout">Logout</NavLink> :
+            <NavLink className="bor" exact to="/login">Login</NavLink> }
+
 </div>
         )}
 }
@@ -47,9 +51,12 @@ class SideBar extends React.Component
                             <Route exact path="/about" component={About}/>
                             <Route exact path="/help" component={Help}/>
                             <Route exact path="/content" component={Contents}/>
+
+                            <Route exact path="/examC" component={ExamC}/>
                             <Route exact path="/form" component={Form}/>
                             <Route exact path="/disp" component={TableDisp}/>
                             <Route exact path="/login" component={Login}/>
+                            <Route exact path="/logout" component={Logout}/>
                             <Route exact render={()=> <h1>Not Found</h1>} />
                         </Switch>
                     </section>

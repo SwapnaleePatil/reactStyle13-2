@@ -10,7 +10,7 @@ class App extends Component {
             <div className="App" >
                 <div className="App-header">
                     Welcome To React
-
+                    <h5 align="right">{localStorage.getItem('user')==='' ? "User" : localStorage.getItem('user')}</h5>
                 </div>
 
                 <div className="row">

@@ -15,8 +15,11 @@ class Login extends React.Component {
         }
         this.sendData = this.sendData.bind(this);
         this.googleLogin=this.googleLogin.bind(this);
+        this.regi=this.regi.bind(this);
     }
-
+    regi(){
+        this.props.history.push('/form');
+    }
     googleLogin(){
             alert('gmail login');
             axios.get('/auth/google').then((res) => {
@@ -37,14 +40,15 @@ class Login extends React.Component {
             })
             .then((res) => {
                 console.log("Response", res.data)
+                localStorage.setItem('user',this.state.email);
+            //    localStorage.setItem('pwd',res.data[3].password);
                 this.props.history.push('/disp')
-
+                console.log("User",localStorage.getItem('user'));
             })
             .catch((e) => {
                 console.log("Error" + e);
                 this.props.history.push('/login')
             });
-
     }
     render() {
         return (
@@ -63,16 +67,13 @@ class Login extends React.Component {
 
                                     <a href="http://localhost:5000/auth/google" className="btn btn-block btn-social btn-google" >
                                         <span className="fa fa-google"></span> Google
-                                        {
-                                            localStorage.setItem('type','gmail')
-                                        }
                                     </a>
                                 </div>
                             </div>
                         </div>
                         <br/>
                         <div className="text-center">
-                            <h5>OR</h5>
+                            <h5 className="a" >OR</h5>
                         </div>
                         <br/>
                         <form className="form-horizontal">
@@ -105,6 +106,12 @@ class Login extends React.Component {
                                     }
                                 }
                                 >Login
+                                </button>
+                            </div>
+                            <br/>
+                            <div className="text-center">
+                                <button type="button" className="btn sellBtn btn-success" onClick={this.regi}
+                                >Register
                                 </button>
                             </div>
                         </form>

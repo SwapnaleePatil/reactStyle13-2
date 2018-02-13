@@ -13,9 +13,8 @@ class TableData extends React.Component {
         this.state = {
             data1: [],
             isEditing: false,
-
             detailData: [],
-            cities:['vyara','Surat','Mumbai','Pune','Banglore']
+            cities: ['vyara', 'Surat', 'Mumbai', 'Pune', 'Banglore']
 
         }
         this.showData();
@@ -23,18 +22,20 @@ class TableData extends React.Component {
         this.renderForm = this.renderForm.bind(this);
         this.renderForm1 = this.renderForm1.bind(this);
         this.handleename = this.handleename.bind(this);
-        this.handleemail = this.handleemail.bind(this);
-        this.handlepno = this.handlepno.bind(this);
-        this.handlegen = this.handlegen.bind(this);
-        this.handlecity = this.handlecity.bind(this);
-        this.handleGender = this.handleGender.bind(this);
+        // this.handleemail = this.handleemail.bind(this);
+        // this.handlepno = this.handlepno.bind(this);
+        // this.handlegen = this.handlegen.bind(this);
+        // this.handlecity = this.handlecity.bind(this);
+        // this.handleGender = this.handleGender.bind(this);
+        this.editData = this.editData.bind(this);
+    }
 
-    }
     componentWillMount() {
-        return (
-            {}
-        )
+        if (!localStorage.getItem('user')) {
+            this.props.history.push('/login');
+        }
     }
+
     showData() {
         axios.get('http://localhost:5000/fetch').then((success) => {
             if (!success) {
@@ -46,6 +47,7 @@ class TableData extends React.Component {
             console.log("Error:", e)
         });
     }
+
     handleename(event) {
 //        console.log(event.target.value);
         const {value, name} = event.target;
@@ -55,53 +57,54 @@ class TableData extends React.Component {
             console.log(this.state.ename);
         });
     }
-    handleemail(event) {
-//        console.log(event.target.value);
-        const {value, name} = event.target;
-        const detailData = this.state.detailData;
-        detailData[name] = value;
-        this.setState({detailData}, () => {
-            console.log(this.state.email);
-        });
-    }
-    handlepno(event) {
-//        console.log(event.target.value);
-        const {value, name} = event.target;
-        const detailData = this.state.detailData;
-        detailData[name] = value;
-        this.setState({detailData}, () => {
-            console.log(this.state.pno);
-        });
-    }
-    handlegen(event) {
-//        console.log(event.target.value);
-        const {value, name} = event.target;
-        const detailData = this.state.detailData;
-        detailData[name] = value;
-        this.setState({detailData}, () => {
-            console.log(this.state.gender);
-        });
-    }
-    handlecity(event) {
-//        console.log(event.target.value);
-        const {value, name} = event.target;
-        const detailData = this.state.detailData;
-        detailData[name] = value;
-        this.setState({detailData}, () => {
-            console.log(this.state.city);
-        });
-    }
-    handleGender(event){
-        console.log('Gender : ',event.target.value);
-        const {value, name} = event.target;
-        const detailData = this.state.detailData;
-        detailData[name] = value;
-        this.setState({detailData}, () => {
-            console.log("GEnder",this.state.detailData);
-        });
 
-
-    }
+//     handleemail(event) {
+// //        console.log(event.target.value);
+//         const {value, name} = event.target;
+//         const detailData = this.state.detailData;
+//         detailData[name] = value;
+//         this.setState({detailData}, () => {
+//             console.log(this.state.email);
+//         });
+//     }
+//     handlepno(event) {
+// //        console.log(event.target.value);
+//         const {value, name} = event.target;
+//         const detailData = this.state.detailData;
+//         detailData[name] = value;
+//         this.setState({detailData}, () => {
+//             console.log(this.state.pno);
+//         });
+//     }
+//     handlegen(event) {
+// //        console.log(event.target.value);
+//         const {value, name} = event.target;
+//         const detailData = this.state.detailData;
+//         detailData[name] = value;
+//         this.setState({detailData}, () => {
+//             console.log(this.state.gender);
+//         });
+//     }
+//     handlecity(event) {
+// //        console.log(event.target.value);
+//         const {value, name} = event.target;
+//         const detailData = this.state.detailData;
+//         detailData[name] = value;
+//         this.setState({detailData}, () => {
+//             console.log(this.state.city);
+//         });
+//     }
+//     handleGender(event){
+//         console.log('Gender : ',event.target.value);
+//         const {value, name} = event.target;
+//         const detailData = this.state.detailData;
+//         detailData[name] = value;
+//         this.setState({detailData}, () => {
+//             console.log("GEnder",this.state.detailData);
+//         });
+//
+//
+//     }
     updateData = () => {
         console.log("Detail state", this.state.detailData);
         axios.post(
@@ -122,7 +125,9 @@ class TableData extends React.Component {
             });
         this.showData();
     }
-    editData = (eid) => {
+
+    editData(eid) {
+        //   alert(eid);
         console.log("state", eid);
         axios.post(
             'http://localhost:5000/edit',
@@ -141,6 +146,7 @@ class TableData extends React.Component {
                 console.log("Error" + e);
             });
     }
+
     deleteData = (eid) => {
         console.log("state", eid);
         axios.post(
@@ -162,12 +168,7 @@ class TableData extends React.Component {
     renderForm() {
         //console.log("Data in Randor1",this.state.detailData.ename);
         const detailData = this.state.detailData;
-        if (detailData.gender === "male") {
-            isChecked = true
-        }
-        else {
-            isChecked = false
-        }
+
         return (
             <div className="table">
                 <div className="container">
@@ -190,7 +191,7 @@ class TableData extends React.Component {
                             </div>
                             <div className="col-75">
                                 <input type="email" id="email" name="email" value={detailData.email}
-                                       onChange={this.handleemail}/>
+                                       onChange={this.handleename}/>
                             </div>
                         </div>
 
@@ -200,7 +201,7 @@ class TableData extends React.Component {
                             </div>
                             <div className="col-75">
                                 <input type="number" id="pno" name="pno" value={detailData.pno}
-                                       onChange={this.handlepno}/>
+                                       onChange={this.handleename}/>
                             </div>
                         </div>
                         <div className="row">
@@ -211,34 +212,35 @@ class TableData extends React.Component {
                                 <div className="col-75">
                                     <div>
                                         <section>
-                                            {isChecked ? <div>
+                                            <div>
                                                 <div className="col-10">
-                                                    <input type="radio" name="gender" id="r1" defaultValue="male"
-                                                           checked={true} onChange={this.handleGender}/>
+                                                    <input type="radio" name="gender" id="r1" defaultChecked={() => {
+                                                        if (detailData.gender === "male") {
+                                                            return false;
+                                                        }
+                                                        else {
+                                                            return false;
+                                                        }
+                                                    }} defaultValue="male"
+                                                           onChange={this.handleename}/>
                                                     <div vertical-align="middle" align="left">Male</div>
                                                 </div>
                                                 <div>
                                                     <div className="col-10">
-                                                        <input type="radio" name="gender" id="r2"  defaultValue="female"
-                                                               onChange={this.handleGender}/>
+                                                        <input type="radio" name="gender" id="r2"
+                                                               defaultChecked={() => {
+                                                                   if (detailData.gender === "female") {
+                                                                       return true;
+                                                                   }
+                                                                   else {
+                                                                       return false;
+                                                                   }
+                                                               }} defaultValue="female"
+                                                               onChange={this.handleename}/>
                                                         <div vertical-align="middle" align="left">Female</div>
                                                     </div>
                                                 </div>
-                                                </div>
-                                                :
-                                                <div>
-                                                    <div className="col-10">
-                                                        <input type="radio" name="gender" id="r1" defaultValue="male"
-                                                               onChange={this.handleGender}/>
-                                                        <div vertical-align="middle" align="left">Male</div>
-                                                    </div>
-                                                    <div className="col-10">
-                                                        <input type="radio" name="gender" id="r2" defaultValue="female"
-                                                               checked={true} onChange={this.handleGender}/>
-                                                        <div vertical-align="middle" align="left">Female</div>
-                                                    </div>
-                                                </div>
-                                                }
+                                            </div>
 
 
                                         </section>
@@ -252,12 +254,12 @@ class TableData extends React.Component {
                                 <label>City</label>
                             </div>
                             <div className="col-75">
-                                <select id="city" name="city" ref="city" onChange={this.handlecity}>
+                                <select id="city" name="city" ref="city" onChange={this.handleename}>
                                     <option defaultValue={detailData.city}>{detailData.city}</option>
                                     {
-                                        this.state.cities.map((v,i)=>{
-                                                return v===detailData.city ? ``: <option value={v}>{v}</option>
-                                    })
+                                        this.state.cities.map((v, i) => {
+                                            return v === detailData.city ? `` : <option value={v}>{v}</option>
+                                        })
                                     }
 
 
@@ -266,6 +268,10 @@ class TableData extends React.Component {
                         </div>
 
                         <div className="row">
+                            <div className="col-25">
+                                <label>hello</label>
+                            </div>
+                            <div className="col-75">
                             <input type="submit" value="Submit" onClick={() => {
                                 let r = '';
                                 let a = 0;
@@ -293,6 +299,7 @@ class TableData extends React.Component {
                             }
                             }
                             />
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -310,7 +317,6 @@ class TableData extends React.Component {
                         <tr>
                             <th>Employee Name</th>
                             <th>Email</th>
-
                             <th>Phone No</th>
                             <th>Gender</th>
                             <th>City</th>
@@ -333,13 +339,13 @@ class TableData extends React.Component {
                                             isEditing: true
                                         })
                                         this.editData(eid);
-                                        console.log(this.state.editData1);
+                                        console.log("Edit", v);
                                     }}/></td>
 
                                     <th><a href="#" className="fa fa-trash-o fa-2x" onClick={() => {
                                         eid = v._id
                                         console.log("Eid", eid);
-                                        this.deleteData(eid);
+                                        this.deleteData(v._id);
                                     }}/></th>
                                 </tr>
                             })
